@@ -1,0 +1,26 @@
+<h1>
+   Welcome :)
+</h1>
+<p>
+  Hitler like cats!!!
+</p>
+
+<ul>
+
+<% @cats.each do |cat| %>
+ <li><%= link_to cat.name, cat.url %></li>
+<% end %>
+
+</ul>
+
+<% form_for :cat, @cat || Cat.new, :url => cats_path  do |form| %>
+
+  <label for="cat_name">Name:</label>
+  <%= form.text_field :name %>
+
+  <label for="cat_url">Url:</label>
+  <%= form.text_field :url %>
+
+  <%= submit_tag "Add Cat" %>
+<% end %>
+
